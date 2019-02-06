@@ -18,7 +18,9 @@
 				<a href="#"><i class="fa fa-pinterest-p"></i></a>
 			</div>
 			<div class="header-top_auth">
-				<a href="login.html"><i class="fa fa-sign-in"></i> Login</a>
+				<%= link_to new_user_session_path do %>
+					<i class="fa fa-sign-in"></i> Login
+				<% end %>
 			</div>
 		</div>
 	</div>

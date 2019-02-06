@@ -592,8 +592,8 @@ h1, h2, h3{
 			background-position: center;
 			background-attachment: fixed;
 			background-repeat: no-repeat;
+			transition: all 0.3s ease-in;
 			background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.4)), url('about_us_1.jpg');
-			// transition: all 0.3s ease-in;
 
 			&:hover{
 				transition: all 0.3s ease-in;
