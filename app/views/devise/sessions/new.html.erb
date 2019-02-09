@@ -4,7 +4,7 @@
       <div class="section-title text-center">
         <h3>Login</h3><hr>
       </div>
-      <div class="col-xs-6 col-xs-offset-3">
+      <div class="col-xs-8 col-xs-offset-2 col-sm-5 col-sm-offset-4">
         <%= form_for resource, as: resource_name, url: session_path(resource_name), html: {class: 'form'} do |f| %>  
           <div class="form-group">
             <%= f.label :email do %>
@@ -21,7 +21,7 @@
           </div><br>
 
           <% if devise_mapping.rememberable? -%>
-            <div class="field">
+            <div class="form-group">
               <%= f.check_box :remember_me %>
               <%= f.label :remember_me %>
             </div>
