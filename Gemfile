@@ -16,6 +16,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'bootstrap-sass', '~> 3.4.0'
 gem 'jquery-rails'
 gem 'devise', '~> 4.5'
+gem 'devise_invitable', '~> 1.7', '>= 1.7.5'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

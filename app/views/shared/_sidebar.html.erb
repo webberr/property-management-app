@@ -8,7 +8,11 @@
 				<li><a href="new_listing.html"><i class="fa fa-plus"></i> New Listings</a></li>
 				<li><a href="new_report.html"><i class="fa fa-book"></i> New Reports</a></li>
 				<li><a href="#"><i class="fa fa-credit-card"></i> Payments</a></li>
-				<li><a href="tenants.html"><i class="fa fa-cog"></i> Manage Users</a></li>
+				<li>
+					<%= link_to admin_user_index_path do %>
+						<i class="fa fa-users"></i> Manage Users
+					<% end %>
+				</li>
 				<li><a href="#"><i class="fa fa-envelope"></i> Mail</a></li>
 			</ul>
 		</div>

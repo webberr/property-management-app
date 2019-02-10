@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
+  get 'admin_user/index'
+  get 'admin_user/show'
+  get 'admin_user/delete'
   devise_for :users
-  get 'home_page/index'
   root 'home_page#index'
 end
