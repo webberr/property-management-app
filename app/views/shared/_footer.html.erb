@@ -15,7 +15,11 @@
           <% if !user_signed_in? %>
             <li><%= link_to "Logins", new_user_session_path %></li>
           <% else %>
-            <li><%= link_to "Account", edit_user_registration_path %></li>
+            <li>
+              <%= link_to edit_user_registration_path do %>
+                <i class="fa fa-user-circle-o"></i> Account
+              <% end %>
+            </li>
           <% end %>
         </ul>
       </div>

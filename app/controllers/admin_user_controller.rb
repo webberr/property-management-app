@@ -2,7 +2,7 @@ class AdminUserController < ApplicationController
 	layout 'app'
 
   def index
-  	@users = User.all
+  	@users = User.confirmed
   end
 
   def show
