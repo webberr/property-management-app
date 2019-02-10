@@ -31,7 +31,7 @@
             <%= f.submit "Log in", class: "btn btn-danger btn-block" %>
           </div>
 
-          <a href="#" style="color: #fff;">Forgot Password?</a>
+          <%= link_to("Forgot Password?", new_user_password_path, {style: 'color: #fff;'}) %>
         <% end %>
       </div>
     </div>
