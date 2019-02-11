@@ -10,33 +10,52 @@
           </div>
           <div class="panel-body">
             <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: 'form' }) do |f| %>
-              
-              <%= devise_error_messages! %>
               <div class="row">
+                
                 <div class="col-sm-6">
-                  <div class="form-group">
-                    <%= f.label :first_name %>
+                  <div class="form-group <%= 'has-error' if resource_has_error?(resource, :first_name) %>">
+                    <%= f.label :first_name, class: 'control-label' %>
+                    <% if resource_has_error?(resource, :first_name) %>
+                      <small class="help-block">
+                        <%= get_resource_error(resource, :first_name) %>
+                      </small>
+                    <% end %>
                     <%= f.text_field :first_name, class: 'form-control', placeholder: "First Name" %>
                   </div>
                 </div>
 
                 <div class="col-sm-6">
-                  <div class="form-group">
-                    <%= f.label :last_name %>
+                  <div class="form-group <%= 'has-error' if resource_has_error?(resource, :last_name) %>">
+                    <%= f.label :last_name, class: 'control-label' %>
+                    <% if resource_has_error?(resource, :last_name) %>
+                      <small class="help-block">
+                        <%= get_resource_error(resource, :last_name) %>
+                      </small>
+                    <% end %>
                     <%= f.text_field :last_name, class: 'form-control', placeholder: "Last Name" %>
                   </div>
                 </div>
-
+                
                 <div class="col-sm-6">
-                  <div class="form-group">
+                  <div class="form-group <%= 'has-error' if resource_has_error?(resource, :email) %>">
                     <%= f.label :email %>
+                    <% if resource_has_error?(resource, :email) %>
+                      <small class="help-block">
+                        <%= get_resource_error(resource, :email) %>
+                      </small>
+                    <% end %>
                     <%= f.email_field :email, class: 'form-control', placeholder: "Email" %>
                   </div>
                 </div>
                 
                 <div class="col-sm-6">
-                  <div class="form-group">
+                  <div class="form-group <%= 'has-error' if resource_has_error?(resource, :phone) %>">
                     <%= f.label :phone %>
+                    <% if resource_has_error?(resource, :phone) %>
+                      <small class="help-block">
+                        <%= get_resource_error(resource, :phone) %>
+                      </small>
+                    <% end %>
                     <%= f.text_field :phone, class: 'form-control', placeholder: "Phone..." %>
                   </div>
                 </div>
@@ -55,27 +74,39 @@
                 </div>
 
                 <div class="col-sm-10">
-                  <div class="form-group">
-                    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-                    <%= f.password_field :password, class: 'form-control', placeholder: 'Password...' %>
-                    <% if @minimum_password_length %>
-                      <em><%= @minimum_password_length %> characters minimum</em>
+                  <div class="form-group <%= 'has-error' if resource_has_error?(resource, :password) %>">
+                    <%= f.label :password, class: 'control-label' %> <i>(leave blank if you don't want to change it)</i><br />
+                    <%= f.password_field :password, class: 'form-control', placeholder: '6 charactes minimum...' %>
+                    <% if resource_has_error?(resource, :password) %>
+                      <small class="help-block">
+                        <%= get_resource_error(resource, :password) %>
+                      </small>
                     <% end %>
                   </div>
                 </div>
 
                 <div class="col-sm-10">
-                  <div class="form-group">
-                    <%= f.label :password_confirmation %>
+                  <div class="form-group <%= 'has-error' if resource_has_error?(resource, :password_confirmation) %>">
+                    <%= f.label :password_confirmation, class: 'control-label' %>
                     <%= f.password_field :password_confirmation, class: 'form-control', placeholder: 'Password Confirmation...' %>
+                    <% if resource_has_error?(resource, :password_confirmation) %>
+                      <small class="help-block">
+                        <%= get_resource_error(resource, :password_confirmation) %>
+                      </small>
+                    <% end %>
                   </div>
                 </div>
                 
                 <div class="col-sm-10">
                   <hr>
-                  <div class="form-group">
-                    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+                  <div class="form-group <%= 'has-error' if resource_has_error?(resource, :current_password) %>">
+                    <%= f.label :current_password, class: 'control-label' %> <i>(we need your current password to confirm your changes)</i><br />
                     <%= f.password_field :current_password, class: 'form-control' %>
+                    <% if resource_has_error?(resource, :current_password) %>
+                      <small class="help-block">
+                        <%= get_resource_error(resource, :current_password) %>
+                      </small>
+                    <% end %>
                   </div>
                 </div>
               </div>

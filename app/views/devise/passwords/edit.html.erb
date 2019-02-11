@@ -9,17 +9,27 @@
           <%= devise_error_messages! %>
           <%= f.hidden_field :reset_password_token %>
 
-          <div class="form-group">
+          <div class="form-group <%= 'has-error' if resource_has_error?(resource, :password) %>">
             <%= f.label :password, "New password" %><br />
             <% if @minimum_password_length %>
               <em>(<%= @minimum_password_length %> characters minimum)</em><br />
             <% end %>
             <%= f.password_field :password, autofocus: true, class: 'form-control' %>
+            <% if resource_has_error?(resource, :password) %>
+              <small class="help-block">
+                <%= get_resource_error(resource, :password) %>
+              </small>
+            <% end %>
           </div>
 
-          <div class="form-group">
+          <div class="form-group <%= 'has-error' if resource_has_error?(resource, :password_confirmation) %>">
             <%= f.label :password_confirmation, "Confirm new password" %><br />
             <%= f.password_field :password_confirmation, class: 'form-control' %>
+            <% if resource_has_error?(resource, :password_confirmation) %>
+              <small class="help-block">
+                <%= get_resource_error(resource, :password_confirmation) %>
+              </small>
+            <% end %>
           </div>
 
           <div class="form-group">
