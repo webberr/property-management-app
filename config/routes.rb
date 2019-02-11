@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
+  get 'users', to: 'users#index', as: "users"
   get 'dashboard', to: 'dashboard#home', as: 'dashboard'
-  get 'admin_user/index'
-  get 'admin_user/show'
-  get 'admin_user/delete'
-  devise_for :users, :controllers => { :invitations => 'users/invitations' }
+  devise_for :users,
+  						path: '',
+  					 	controllers: { :invitations => 'users/invitations' },
+  					 	path_names: { sign_in: 'login', sign_out: 'logout', edit: 'profile'}
   root 'home_page#index'
 end

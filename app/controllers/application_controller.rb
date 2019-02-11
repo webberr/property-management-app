@@ -6,6 +6,10 @@ class ApplicationController < ActionController::Base
 		dashboard_path
 	end
 
+	def after_sign_out_path_for(resource)
+		new_user_session_path
+	end
+
 	protected
 		def layout_by_resource
 			# if devise_controller? && resource_name == :user && action_name == 'new'

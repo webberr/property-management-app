@@ -7,6 +7,7 @@ class User < ApplicationRecord
   scope :confirmed, -> { where.not(confirmed_at: nil) }
 
   validates :first_name, :last_name, :email, :phone, presence: true
+  validates :first_name, :last_name, length: {maximum: 20}
   validates :email, :phone, uniqueness: true
 
   before_create :set_default_role, :if => :new_record?
