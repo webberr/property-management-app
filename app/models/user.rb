@@ -11,7 +11,8 @@ class User < ApplicationRecord
   validates :email, :phone, uniqueness: true
 
   before_create :set_default_role, :if => :new_record?
-
+  has_many :properties
+  
   def fullname  	
     "#{self.first_name} #{self.last_name}"
   end
