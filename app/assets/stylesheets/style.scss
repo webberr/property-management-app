@@ -180,6 +180,19 @@ h1, h2, h3{
 	}
 }
 
+.publish_btn{
+	color: red; 
+	padding: .3rem;
+	border: .1rem solid $primary-color;
+	font-weight: 800; 
+	text-transform: uppercase;
+
+	&:hover, &:focus{
+		color: red;
+	}
+}
+
+
 // FORM ===>
 .form{
 	input[type="tel"],
@@ -754,7 +767,12 @@ h1, h2, h3{
 
 
 //=====NEW PROPERTY PAGE=====
-
+.new_property_menu{
+	span{
+		padding-left: .3rem;
+		color: $primary-color;
+	}
+}
 
 
 // https://stackoverflow.com/questions/22742989/bootstrap-3-column-top-margin-on-smaller-screens

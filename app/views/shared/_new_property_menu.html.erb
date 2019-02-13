@@ -1,10 +1,52 @@
 <div class="new_property_menu">
 	<ol class="breadcrumb">
-		<li><%= link_to "Listing", listing_property_path, class: 'active' %></li>
-	  <li><%= link_to "Description", description_property_path, class: 'active' %></li>
-	  <li><%= link_to "Address", address_property_path, class: 'active' %></li>
-	  <li><%= link_to "Price", pricing_property_path, class: 'active' %></li>
-	  <li><%= link_to "Photo Upload", photo_upload_property_path, class: 'active' %></li>
-	  <li><%= link_to "Amenities", amenities_property_path, class: 'active' %></li>
+		<li>
+			<%= link_to "Listing", listing_property_path %> 
+			<span class="pull-right"><i class="fa fa-check"></i></span>
+		</li>
+
+	  <li>
+	  	<%= link_to "Description", description_property_path %>
+	  	<% if !@property.description.blank? %>
+	  		<span class="pull-right"><i class="fa fa-check"></i></span>		
+	  	<% end %>
+	  </li>
+
+	  <li>
+	  	<%= link_to "Address", address_property_path %>
+	  	<% if !@property.address.blank? %>
+	  		<span class="pull-right"><i class="fa fa-check"></i></span>
+			<% end %>
+	  </li>
+
+	  <li>
+	  	<%= link_to "Price", pricing_property_path %>
+	  	<% if !@property.price.blank? %>
+	  		<span class="pull-right"><i class="fa fa-check"></i></span>
+	  	<% end %>
+	  </li>
+	  
+	  <li>
+	  	<%= link_to "Photo Upload", photo_upload_property_path %>
+	  	<%# if !@property.photo_upload.blank? %>
+	  		<span class="pull-right"><i class="fa fa-check"></i></span>
+	  	<%# end %>
+	  </li>
+
+	  <li>
+	  	<%= link_to "Amenities", amenities_property_path %>
+	  	<span class="pull-right"><i class="fa fa-check"></i></span>
+	  </li>
+		
+		<% if !@property.active && !@property.price.blank? && !@property.title.blank? && !@property.description.blank? && !@property.address.blank? %>
+		  <li>
+		  	<a href="#" id="publish_btn" class="publish_btn">Publish
+			  	<%= form_for @property, html: {style: 'display: none;', id: 'publish_form'} do |f| %>
+						<%= f.hidden_field :active, value: true %>
+						<%= f.submit 'Publish', id: 'publishBtn' %>
+		      <% end %>
+	      </a>
+		  </li>
+		<% end %>
 	</ol>
 </div>

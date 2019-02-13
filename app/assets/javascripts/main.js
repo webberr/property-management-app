@@ -22,3 +22,11 @@ $(function(){
 		};
 	});
 });
+
+// PUBLISH PROPERTY LISTING
+$(function(){
+	$('#publish_btn').click(function(e){
+		e.preventDefault();
+		$('#publish_form').submit();
+	});
+});

@@ -13,9 +13,16 @@
 
           <div class="panel-body">
           	<%= form_for @property, html: { class: 'form' } do |f| %>
+              <% if !@property.new_record? %>
+                <div class="form-group">
+                  <%= f.label :title, 'Listing Title' %>
+                  <%= f.text_field :title, class: 'form-control', placeholder: 'Enter listing title...', required: true %>
+                </div>
+              <% end %>
+
               <div class="form-group">
                 <%= f.label :description, "Description" %>
-                <%= f.text_area :description, rows: 5, placeholder: "Enter description of property...", class: 'form-control' %>
+                <%= f.text_area :description, rows: 5, placeholder: "Enter description of property...", class: 'form-control', required: true %>
               </div>
 
               <div class="form-group text-center">

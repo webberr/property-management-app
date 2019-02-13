@@ -15,7 +15,7 @@
           	<%= form_for @property, html: {class: 'form'} do |f| %>
               <div class="form-group">
                 <%= f.label :address, "Property Location" %>
-                <%= f.text_field :address, placeholder: "Enter property address...", class: 'form-control' %>
+                <%= f.text_field :address, placeholder: "Enter property address...", class: 'form-control', required: true %>
               </div>
 
               <div class="form-group">
