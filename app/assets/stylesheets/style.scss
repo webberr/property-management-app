@@ -168,6 +168,30 @@ h1, h2, h3{
 	}
 }
 
+// PHOTO UPLOAD
+.btn-file {
+  // position: relative;
+  // overflow: hidden;
+  text-align: center;
+  border: 1px solid $primary-color;
+}
+
+.btn-file input[type=file] {
+  // top: 0;
+  // right: 0;
+  min-width: 100%;
+  min-height: 100%;
+  // font-size: 100px;
+  text-align: right;
+  filter: alpha(opacity=0);
+  opacity: 0;
+  outline: none;
+  display: block;
+  cursor: inherit;
+  // background: white;
+  // position: absolute;
+}
+
 .link_style{
 	color: $white;
 	font-weight: 100;
@@ -191,7 +215,6 @@ h1, h2, h3{
 		color: red;
 	}
 }
-
 
 // FORM ===>
 .form{

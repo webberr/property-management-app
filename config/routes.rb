@@ -15,5 +15,6 @@ Rails.application.routes.draw do
       get 'amenities'
       get 'address'
     end
+    resources :photos, only: [:create, :destroy]
   end
 end

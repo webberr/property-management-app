@@ -1,0 +1,13 @@
+<% if @property.photos.attached?  %>
+	<div class="row">
+		<% @property.photos.each do |img| %>
+			<div class="col-sm-3">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<%= image_tag img, class: 'img-responsive' %>
+					</div>
+				</div>
+			</div>
+		<% end %>
+	</div>
+<% end %>

@@ -12,11 +12,23 @@
           </div>
 
           <div class="panel-body">
-          	<div class="row">
-          		<div class="col-sm-offset-3 col-sm-6">
-          			
-          		</div>
-          	</div>
+            <div class="col-sm-6 col-sm-offset-3">
+        			<%= form_for @property, html: {multipart: true} do |f| %>
+                  <div class="form-group">
+                    <span class="btn btn-default btn-file">
+                      <i class="fa fa-cloud-upload" aria-hidden="true"></i> Select Photos
+                      <%= f.file_field "photos", multiple: true %>
+                    </span>
+                  </div>
+                  <div class="text-center">
+                    <%= f.submit "Add Photos", class: "btn btn-green" %>
+                  </div>
+              <% end %>
+            </div>
+          </div>
+
+          <div class="panel-footer">
+            <div id="photos"><%= render 'photos/photos_list' %></div>
           </div>
         </div>
       </div>
