@@ -1,0 +1,30 @@
+<main id="wrapper">
+  <div class="container">
+    <div class="row">
+      <%= render 'shared/sidebar' %>
+
+      <div class="col-sm-9">
+      	<%= render 'shared/new_property_menu' %>
+      	
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">Property Pricing</h4>
+          </div>
+
+          <div class="panel-body">
+          	<%= form_for @property, html: {class: 'form'} do |f| %>
+              <div class="form-group">
+                <%= f.label :price, "Price" %>
+                <%= f.text_field :price, placeholder: "Enter property price...", class: 'form-control' %>
+              </div>
+
+              <div class="form-group">
+                <%= f.submit "Save", class: "btn btn-green" %>
+              </div>
+          	<% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

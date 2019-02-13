@@ -13,7 +13,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li class="active"><%= link_to('Home', dashboard_path) %></li>
         <% if user_signed_in? %>
-	        <li><a href="listings.html">Listings</a></li>
+	        <li><%= link_to("Listings", properties_path) %></li>
 	        <li><a href="#">Reports</a></li>
 	        <li><a href="#">Tenants</a></li>
 	        <li><a href="#"><i class="fa fa-envelope"></i></a></li>

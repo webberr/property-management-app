@@ -1,5 +1,6 @@
-class PropertyController < ApplicationController
-  before_action :set_property, except: [:index, :create, :new]
+class PropertiesController < ApplicationController
+  layout 'app'
+  before_action :set_property, except: [:index, :new, :create]
   before_action :authenticate_user!, except: [:show]
   
   def index
@@ -7,14 +8,14 @@ class PropertyController < ApplicationController
   end
 
   def new
-    @property = current_user.property.build
+    @property = current_user.properties.build
   end
 
   def create
-    @property = current_user.property.build(property_params)
+    @property = current_user.properties.build(property_params)
     if @property.save
       flash[:success] = "New property listing has been created"
-      redirect_to listing_property_path
+      redirect_to listing_property_path(@property)
     else
       flash.now[:danger] = "Oops!, something went wrong."
       render :new 

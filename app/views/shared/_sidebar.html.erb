@@ -5,7 +5,11 @@
 
 			<ul class="sidebar_menu">
 				<li><a href="#"><i class="fa fa-user"></i> Add New Tenant</a></li>
-				<li><a href="new_listing.html"><i class="fa fa-plus"></i> New Listings</a></li>
+				<li>
+					<%= link_to new_property_path do %>
+						<i class="fa fa-plus"></i> New Listings
+					<% end %>
+				</li>
 				<li><a href="new_report.html"><i class="fa fa-book"></i> New Reports</a></li>
 				<li><a href="#"><i class="fa fa-credit-card"></i> Payments</a></li>
 				<li>

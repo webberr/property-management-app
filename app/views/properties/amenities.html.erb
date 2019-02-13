@@ -1,0 +1,47 @@
+<main id="wrapper">
+  <div class="container">
+    <div class="row">
+      <%= render 'shared/sidebar' %>
+
+      <div class="col-sm-9">
+      	<%= render 'shared/new_property_menu' %>
+      	
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">Property Amenities</h4>
+          </div>
+
+          <div class="panel-body">
+          	<%= form_for @property, html: { class: 'form' } do |f| %>
+              <div class="row form-group">
+                <div class="col-sm-4">
+                  <%= f.check_box :is_tv %> TV
+                </div>
+
+                <div class="col-sm-4">
+                  <%= f.check_box :is_kitchen %> Kitchen
+                </div>
+
+                <div class="col-sm-4">
+                  <%= f.check_box :is_air %> Cooling Unit
+                </div>
+
+                <div class="col-sm-4">
+                  <%= f.check_box :is_internet %> Internet
+                </div>
+
+                <div class="col-sm-4">
+                  <%= f.check_box :is_pool %> Swimming Pool
+                </div>
+              </div>
+              <hr>
+              <div class="form-group text-center">
+                <%= f.submit "Update Listing", class: 'btn btn-green' %>
+              </div>
+          	<% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
