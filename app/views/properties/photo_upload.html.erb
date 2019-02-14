@@ -17,7 +17,7 @@
                   <div class="form-group">
                     <span class="btn btn-default btn-file">
                       <i class="fa fa-cloud-upload" aria-hidden="true"></i> Select Photos
-                      <%= f.file_field "photos", multiple: true %>
+                      <%= f.file_field "photos", multiple: true, required: true %>
                     </span>
                   </div>
                   <div class="text-center">
@@ -26,10 +26,12 @@
               <% end %>
             </div>
           </div>
-
-          <div class="panel-footer">
-            <div id="photos"><%= render 'photos/photos_list' %></div>
-          </div>
+          
+          <% if @property.photos.count > 0 %>
+            <div class="panel-footer">
+              <div id="photos"><%= render 'photos/photos_list' %></div>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>

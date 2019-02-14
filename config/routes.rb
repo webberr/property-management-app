@@ -19,8 +19,8 @@ Rails.application.routes.draw do
       get 'photo_upload'
       get 'amenities'
       get 'address'
+      delete 'delete_photo/:photo_id', action: :delete_photo, as: :delete_photo
     end
-    resources :photos, only: [:create, :destroy]
   end
   root 'home_page#index'
 end

@@ -41,7 +41,10 @@ class PropertiesController < ApplicationController
   end
 
   def update
-    if @property.update(property_params)
+    new_property_params = property_params
+    new_property_params = property_params.merge(active: true) if is_property_publishable?
+
+    if @property.update(new_property_params)
       flash[:success] = "Property details have been updated..."
     else
       flash.now[:danger] = "Oops!, something went wrong..."
@@ -58,9 +61,19 @@ class PropertiesController < ApplicationController
   def listing
   end
 
+  def delete_photo
+    @property_photo = ActiveStorage::Attachment.find(params[:photo_id])
+    @property_photo.purge
+    redirect_back(fallback_location: request.referer)
+  end
+
   private
     def set_property
       @property = Property.find(params[:id])
+    end
+
+    def is_property_publishable?
+      !@property.active && !@property.price.blank? && !@property.title.blank? && !@property.description.blank? && !@property.address.blank? && !@property.photos.attached?
     end
 
     def property_params

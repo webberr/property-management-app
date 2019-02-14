@@ -6,6 +6,13 @@
 					<div class="panel-heading">
 						<%= image_tag img, class: 'img-responsive' %>
 					</div>
+					<div class="panel-footer clearfix">
+						<span class="pull-right">
+							<%= link_to delete_photo_property_path(@property, img.id), remote: true, method: :delete, data: {confirm: 'Are you sure?' } do %>
+								<i class="fa fa-trash"></i>
+							<% end %>
+						</span>
+					</div>
 				</div>
 			</div>
 		<% end %>
