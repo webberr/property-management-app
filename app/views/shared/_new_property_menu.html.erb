@@ -28,9 +28,9 @@
 	  
 	  <li>
 	  	<%= link_to "Photo Upload", photo_upload_property_path %>
-	  	<%# if !@property.photo_upload.blank? %>
+	  	<% if !@property.photos.blank? %>
 	  		<span class="pull-right"><i class="fa fa-check"></i></span>
-	  	<%# end %>
+	  	<% end %>
 	  </li>
 
 	  <li>

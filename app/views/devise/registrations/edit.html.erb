@@ -9,7 +9,7 @@
             <h4 class="panel-title">Edit Profile</h4>
           </div>
           <div class="panel-body">
-            <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: 'form' }) do |f| %>
+            <%= form_for(resource, as: resource_name, url: user_registration_path(resource_name), html: { method: :put, class: 'form' }) do |f| %>
               <div class="row">
                 
                 <div class="col-sm-6">
@@ -117,7 +117,7 @@
             <% end %>
           </div>
           <div class="panel-footer clearfix">
-            <p><%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'btn btn-danger' %></p>
+            <p><%= button_to "Cancel my account", user_registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'btn btn-danger' %></p>
 
             <%= link_to "Back", :back, class: 'pull-right btn-info btn-sm1' %>
           </div>

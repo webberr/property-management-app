@@ -26,7 +26,6 @@ class PropertiesController < ApplicationController
   end
 
   def pricing
-    @property = Property.find(params[:id])
   end
 
   def description
