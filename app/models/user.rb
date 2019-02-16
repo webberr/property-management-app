@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are: :lockable, :timeoutable, :trackable and :omniauthable
 
-  enum role: {staff: 'staff', tenant: 'tenant'}
+  enum role: {staff: 'staff', tenant: 'tenant', admin: 'admin'}
   devise :database_authenticatable, :recoverable, :rememberable, :validatable, :confirmable, :invitable, :invite_for => 2.hours
 
   scope :confirmed, -> { where.not(confirmed_at: nil) }
@@ -12,6 +12,7 @@ class User < ApplicationRecord
 
   before_create :set_default_role, :if => :new_record?
   has_many :properties
+  has_many :leases
   
   def fullname  	
     "#{self.first_name} #{self.last_name}"
