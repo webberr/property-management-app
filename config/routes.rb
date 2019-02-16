@@ -19,7 +19,7 @@ Rails.application.routes.draw do
       get 'address'
       delete 'delete_photo/:photo_id', action: :delete_photo, as: :delete_photo
     end
+    resources :leases, only: [:create, :destroy]
   end
-  resources :leases, only: [:create, :destroy]
   root 'home_page#index'
 end

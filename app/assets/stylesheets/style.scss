@@ -904,6 +904,31 @@ h1, h2, h3{
 	}
 }
 
+.widget{
+	width: 100%;
+	margin: 2rem 0 1rem 0;
+	padding: 4rem 3rem;
+	box-shadow: 6px -1px 19px 0px rgba(194,194,194,1);
+	-moz-box-shadow: 6px -1px 19px 0px rgba(194,194,194,1);
+	-webkit-box-shadow: 6px -1px 19px 0px rgba(194,194,194,1);
+
+	h4{
+		font-size: 2rem;
+		font-weight: bold;
+		text-align: center;
+		padding-bottom: 1rem;
+		margin: 0;
+		text-transform: uppercase;
+	}
+
+	hr{
+		width: 100px;
+	  height: .4rem;
+	  margin: 0 auto 2rem auto;
+	  background-color: $primary-color;
+	}
+}
+
 
 
 

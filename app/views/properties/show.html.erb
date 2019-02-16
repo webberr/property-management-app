@@ -50,9 +50,10 @@
 						</div>
 					</div>
 				</div>
-			</div>
-
+			</div><!--header-->
+			
 			<div class="row">
+				<!--description-->
 				<div class="col-sm-8">
 					<div class="listing-info">
 						<h3 class="listing-title">
@@ -61,15 +62,15 @@
 						</h3>
 						
 						<div class="row text-center listing-meta">
-							<div class="col-sm-3">
+							<div class="col-xs-6 col-sm-3">
 								<i class="fa fa-home"></i>
 								<h5><%= @property.property_type.capitalize %></h5>
 							</div>
-							<div class="col-sm-3">
+							<div class="col-xs-6 col-sm-3">
 								<i class="fa fa-bed"></i>
 								<h5><%= pluralize(@property.bedroom, "Bedroom") %></h5>
 							</div>
-							<div class="col-sm-3">
+							<div class="col-xs-6 col-sm-3">
 								<i class="fa fa-bath"></i>
 								<h5><%= pluralize(@property.bathroom, "Bathroom") %></h5>
 							</div>
@@ -107,6 +108,11 @@
 							</div>
 						</div>
 					</div>	
+				</div>
+
+				<!--Lease Form-->
+				<div class="col-sm-4">
+					<%= render 'lease/form', obj: @property %>
 				</div>
 			</div>
 		</div>
