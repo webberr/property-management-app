@@ -1,2 +1,52 @@
-<h1>Properties#index</h1>
-<p>Find me in app/views/properties/index.html.erb</p>
+<main id="wrapper">
+  <div class="container">
+    <div class="row">
+      <%= render 'shared/sidebar' %>
+
+      <div class="col-sm-9">      	
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">My Listings</h4>
+          </div>
+
+          <div class="panel-body table-responsive">
+            <table class="table table-bordered table-striped customTable">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Title</th>
+                  <th>Location</th>
+                  <th>Property Type</th>
+                  <th>Listing Type</th>
+                  <th>Status</th>
+                  <th>&nbsp;</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @properties.each_with_index do |property, i| %>
+                  <tr>
+                    <td><%= i + 1 %></td>
+                    <td><%= property.title %></td>
+                    <td><%= property.address %></td>
+                    <td><%= property.property_type.capitalize %></td>
+                    <td><%= property.listing_type.capitalize %></td>
+                    <td><%= property.active ? 'published' : 'draft' %></td>
+                    <td>
+                      <%= link_to property_path(property.id) do %>
+                        <i class="fa fa-eye"></i>
+                      <% end %>
+                      <%= link_to listing_property_path(property.id) do %>
+                        <i class="fa fa-pencil"></i>
+                      <% end %>
+                      <a href="listing.html"><i class="fa fa-close"></i> </a>
+                    </td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

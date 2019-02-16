@@ -1,0 +1,114 @@
+<main id="wrapper">
+	<div class="container">
+		<div id="listing" class="listing">
+			<div class="listing-header listing__wrapper">
+				<div class="row">
+					<div class="col-sm-12">
+						<h3><%= @property.address %></h3>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-sm-8">
+						<div id="listing-carousel" class="carousel slide" data-ride="carousel">
+						  <!-- Wrapper for slides -->
+						  <div class="carousel-inner">
+						  	<% if @property.photos.attached? %>
+						  		<% @property.photos.each_with_index do |img, i| %>
+								    <div class="item <%= 'active' if i == 0 %>">
+								      <%= image_tag img, class: 'carousel-img' %>
+								    </div>
+							    <% end %>
+						    <% end %>
+						  </div>
+
+						  <!-- Left and right controls -->
+						  <a class="left carousel-control" href="#listing-carousel" data-slide="prev">
+						    <span class="glyphicon glyphicon-chevron-left"></span>
+						    <span class="sr-only">Previous</span>
+						  </a>
+						  <a class="right carousel-control" href="#listing-carousel" data-slide="next">
+						    <span class="glyphicon glyphicon-chevron-right"></span>
+						    <span class="sr-only">Next</span>
+						  </a>
+						</div>
+					</div>
+
+					<div class="col-sm-4">
+						<div class="listing-header__preview">
+							<h1>$ <%= @property.price %></h1>
+							<span><%= @property.bedroom %> beds |</span>
+							<span><%= @property.bathroom %> bath |</span>
+							<span><%= @property.size %> sqft |</span>
+							<span><%= @property.property_type %></span>
+
+							<p>Date Listed: <span><%= @property.created_at.strftime("%d-%m-%Y") %></span></p>
+							<span class="btn btn-danger">Schedule a Viewing</span>
+							<span class="btn btn-danger">Request more info</span>
+
+							<p><i class="fa fa-heart-o"></i> Add to saved listings</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-sm-8">
+					<div class="listing-info">
+						<h3 class="listing-title">
+							<%= @property.title %>
+							<span class="small pull-right">$<%= @property.price %></span>		
+						</h3>
+						
+						<div class="row text-center listing-meta">
+							<div class="col-sm-3">
+								<i class="fa fa-home"></i>
+								<h5><%= @property.property_type.capitalize %></h5>
+							</div>
+							<div class="col-sm-3">
+								<i class="fa fa-bed"></i>
+								<h5><%= pluralize(@property.bedroom, "Bedroom") %></h5>
+							</div>
+							<div class="col-sm-3">
+								<i class="fa fa-bath"></i>
+								<h5><%= pluralize(@property.bathroom, "Bathroom") %></h5>
+							</div>
+							<div class="col-sm-3">
+								<i class="fa fa-map"></i>
+								<h5><a href="#">Map</a></h5>
+							</div>
+						</div>
+						
+						<div class="listing-desc">
+							<h4>Description</h4>
+							<p><%= @property.description %></p>
+						</div>
+
+						<div class="listing-amenities">
+							<h4>Amenities</h4>
+							<div class="row">
+								<div class="col-sm-6">
+									<ul class="amenities">
+										<li class="<%= 'text-line-through' if !@property.is_heating %>">Heating</li>
+										<li >Fridge</li>
+										<li>Dishwasher</li>
+										<li>Washer/Dryer</li>
+										<li class="<%= 'text-line-through' if !@property.is_air %>">Air Conditioning</li>
+									</ul>
+								</div>
+								<div class="col-sm-6">
+									<ul class="amenities">
+										<li class="<%= 'text-line-through' if !@property.is_tv %>">TV</li>
+										<li class="<%= 'text-line-through' if !@property.is_kitchen %>">Kitchen</li>
+										<li class="<%= 'text-line-through' if !@property.is_internet %>">Internet</li>
+										<li class="<%= 'text-line-through' if !@property.is_pool %>">Swimming pool</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>	
+				</div>
+			</div>
+		</div>
+	</div>
+</main>
