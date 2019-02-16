@@ -2,7 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are: :lockable, :timeoutable, :trackable and :omniauthable
 
   enum role: {staff: 'staff', tenant: 'tenant', admin: 'admin'}
-  devise :database_authenticatable, :recoverable, :rememberable, :validatable, :confirmable, :invitable, :invite_for => 2.hours
+  devise :database_authenticatable, :recoverable, :registerable, :rememberable, :validatable, :confirmable, :invitable, :invite_for => 2.hours
 
   scope :confirmed, -> { where.not(confirmed_at: nil) }
 
