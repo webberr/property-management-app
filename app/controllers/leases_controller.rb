@@ -1,5 +1,9 @@
 class LeasesController < ApplicationController
 	before_action :authenticate_user!
+  layout 'app'
+  def index
+    @leases = Lease.all
+  end
 
   def create  	
     # create user with email and send them invitation

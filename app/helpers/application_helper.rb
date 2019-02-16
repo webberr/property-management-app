@@ -11,4 +11,8 @@ module ApplicationHelper
 	def get_resource_error(resource, field)
 		resource.errors.messages[field].join(', ')
 	end
+
+	def set_active(css_class, path)
+		css_class if current_page?(path)
+	end
 end

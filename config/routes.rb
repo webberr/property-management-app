@@ -25,5 +25,7 @@ Rails.application.routes.draw do
     end
     resources :leases, only: [:create, :destroy]
   end
+
+  get '/tenants', to: 'leases#index', as: 'tenants'
   root 'home_page#index'
 end

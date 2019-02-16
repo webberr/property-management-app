@@ -4,13 +4,13 @@
 			<h4>Dashboard</h4><hr>
 
 			<ul class="sidebar_menu">
-				<li>
+				<li class="<%= set_active('active_link', properties_path) %>">
 					<%= link_to properties_path do %>
 						<i class="fa fa-list"></i> My Listings
 					<% end %>
 				</li>
 				
-				<li>
+				<li class="<%= set_active('active_link', new_property_path) %>">
 					<%= link_to new_property_path do %>
 						<i class="fa fa-plus"></i> New Listings
 					<% end %>
@@ -18,7 +18,7 @@
 				<li><a href="#"><i class="fa fa-user"></i> Add New Tenant</a></li>
 				<li><a href="new_report.html"><i class="fa fa-book"></i> New Reports</a></li>
 				<li><a href="#"><i class="fa fa-credit-card"></i> Payments</a></li>
-				<li>
+				<li class="<%= set_active('active_link', users_path) %>">
 					<%= link_to users_path do %>
 						<i class="fa fa-users"></i> Manage Users
 					<% end %>

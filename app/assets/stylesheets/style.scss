@@ -216,6 +216,12 @@ h1, h2, h3{
 	}
 }
 
+.active_link a{
+	font-weight: bold;
+	text-transform: uppercase;
+	color: $primary-color-dark !important;
+}
+
 // FORM ===>
 .form{
 	input[type="tel"],

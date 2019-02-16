@@ -1,0 +1,50 @@
+<main id="wrapper">
+  <div class="container">
+    <div class="row">
+      <%= render 'shared/sidebar' %>
+
+      <div class="col-sm-9">      	
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">Tenants</h4>
+          </div>
+
+          <div class="panel-body table-responsive">
+          	<table class="table table-bordered table-striped customTable">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Location</th>
+                  <th>Property Type</th>
+                  <th>Tenant Name</th>
+                  <th>Status</th>
+                  <th>&nbsp;</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @leases.each_with_index do |lease, i| %>
+                  <tr>
+                    <td><%= i + 1 %></td>
+                    <td><%= lease.property.address %></td>
+                    <td><%= lease.property.property_type.capitalize %></td>
+                    <td><%= lease.property.user.fullname %></td>
+                    <td>Occupied</td>
+                    <td>
+                      <%= link_to property_path(lease.property.id) do %>
+                        <i class="fa fa-eye"></i>
+                      <% end %>
+                      <%= link_to listing_property_path(lease.property.id) do %>
+                        <i class="fa fa-pencil"></i>
+                      <% end %>
+                      <a href="listing.html"><i class="fa fa-close"></i> </a>
+                    </td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
