@@ -2,7 +2,6 @@ class PropertiesController < ApplicationController
   layout 'app'
   before_action :set_property, except: [:index, :new, :create]
   before_action :authenticate_user!, except: [:show]
-  before_action :set_creator, except: [:show, :index]
   before_action :is_authorised?, except: :show
   
   def index
