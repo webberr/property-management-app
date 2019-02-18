@@ -2,6 +2,8 @@ class PropertiesController < ApplicationController
   layout 'app'
   before_action :set_property, except: [:index, :new, :create]
   before_action :authenticate_user!, except: [:show]
+  before_action :set_creator, except: [:show, :index]
+  before_action :is_authorised?, except: :show
   
   def index
     @properties = current_user.properties.all
@@ -78,5 +80,12 @@ class PropertiesController < ApplicationController
 
     def property_params
       params.require(:property).permit(:title, :description, :address, :active, :bedroom, :bathroom, :is_tv, :is_air, :is_kitchen, :is_pool, :is_heating, :is_internet, :size, :price, :property_type, :listing_type, photos: [])
+    end
+
+    def is_authorised?
+      if !(current_user.is_admin? || current_user.is_staff?)
+        flash[:danger] = "You are not authorised to perform this action"
+        redirect_to dashboard_path
+      end
     end
 end

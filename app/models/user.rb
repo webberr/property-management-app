@@ -18,6 +18,14 @@ class User < ApplicationRecord
     "#{self.first_name} #{self.last_name}"
   end
 
+  def is_admin?
+    self.role == 'admin'
+  end
+
+  def is_staff?
+    self.role == 'staff'
+  end
+
   private
 	  def set_default_role
 	  	self.role ||= 'staff'

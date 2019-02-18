@@ -20,7 +20,7 @@
 			<div class="header-top_auth">
 				<% if !user_signed_in? %>
 					<%= link_to new_user_session_path do %>
-						<i class="fa fa-sign-in"></i> Loginedit_user_registration_path
+						<i class="fa fa-sign-in"></i> Login
 					<% end %>
 				<% else %>
 					<%= link_to 'Account', edit_user_registration_path %>
