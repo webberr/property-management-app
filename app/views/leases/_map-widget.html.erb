@@ -6,10 +6,15 @@
 
 <script>
 	function initialize(){
-		let location = {lat: <%= @property.latitude %>, lng: <%= @property.longitude %>}
+		let location = {lat: <%= obj.latitude %>, lng: <%= obj.longitude %>}
 		let map = new google.maps.Map(document.getElementById('gmap'),{
 			center: location,
 			zoom: 15
+		});
+
+		const marker = new google.maps.Marker({
+			position: location,
+			map: map
 		});
 	};
 </script>

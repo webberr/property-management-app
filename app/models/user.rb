@@ -5,6 +5,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :recoverable, :registerable, :rememberable, :validatable, :confirmable, :invitable, :invite_for => 2.hours
 
   scope :confirmed, -> { where.not(confirmed_at: nil) }
+  scope :staffs, -> { where(role: 'staff').or(where(role: 'admin'))}
+  scope :tenants, -> { where(role: 'tenants') }
 
   validates :first_name, :last_name, :email, :phone, presence: true
   validates :first_name, :last_name, length: {maximum: 20}

@@ -2,6 +2,6 @@ class UsersController < ApplicationController
 	layout 'app'
 	
   def index
-  	@users = User.confirmed
+  	@users = User.confirmed.staffs
   end
 end
