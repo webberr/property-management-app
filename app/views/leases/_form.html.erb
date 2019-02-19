@@ -3,6 +3,7 @@
 		<div class="widget">
 			<h4>Add New Tenant</h4><hr>
 			<%= form_for([obj, obj.leases.new], html: {class: 'form'}) do |f| %>
+				
 				<div class="form-group">
 					<%= f.text_field :start_date, class: 'form-control', placeholder: "Lease Start Date" %>
 				</div>
@@ -14,8 +15,8 @@
 				<div class="form-group">
 					<%= email_field_tag :email, "", class: 'form-control', placeholder: 'Enter tenant new email', required: true %>
 				</div>
-
-				<%= f.submit 'Add Tenant', class: 'btn btn-green btn-block' %>
+				
+				<%= f.submit 'Add Tenant', class: 'btn btn-green btn-block', disabled: false %>
 			<% end %>
 		</div>
 	<% end %>

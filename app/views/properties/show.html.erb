@@ -9,7 +9,7 @@
 				</div>
 				
 				<div class="row">
-					<div class="col-sm-8">
+					<div class="col-md-8">
 						<div id="listing-carousel" class="carousel slide" data-ride="carousel">
 						  <!-- Wrapper for slides -->
 						  <div class="carousel-inner">
@@ -34,19 +34,23 @@
 						</div>
 					</div>
 
-					<div class="col-sm-4">
-						<div class="listing-header__preview">
-							<h1>$ <%= @property.price %></h1>
-							<span><%= @property.bedroom %> beds |</span>
-							<span><%= @property.bathroom %> bath |</span>
-							<span><%= @property.size %> sqft |</span>
-							<span><%= @property.property_type %></span>
+					<div class="col-md-4">
+						<div class="flex_dsp">
+							<div class="listing-header__preview">
+								<h1><%= number_to_currency(@property.price, unit: '$') %></h1>
+								<div class="listing-header__preview-meta">
+									<span><%= @property.bedroom >= 4 ? "#{@property.bedroom}+" : @property.bedroom %> beds</span>
+									<span><%= @property.bathroom >= 4 ? "#{@property.bathroom}+" : @property.bathroom %> bath</span>
+									<span><%= @property.size %> sqft</span>
+									<span><%= @property.property_type %></span>
+								</div>
 
-							<p>Date Listed: <span><%= @property.created_at.strftime("%d-%m-%Y") %></span></p>
-							<span class="btn btn-danger">Schedule a Viewing</span>
-							<span class="btn btn-danger">Request more info</span>
+								<p>Date Listed: <span><%= @property.created_at.strftime("%d-%m-%Y") %></span></p>
+								<a href="#" class="sm-btn">Schedule a Viewing</a>
+								<a href="#" class="sm-btn">Request more info</a>
 
-							<p><i class="fa fa-heart-o"></i> Add to saved listings</p>
+								<p><i class="fa fa-heart-o"></i> Add to saved listings</p>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -58,7 +62,7 @@
 					<div class="listing-info">
 						<h3 class="listing-title">
 							<%= @property.title %>
-							<span class="small pull-right">$<%= @property.price %></span>		
+							<span class="small pull-right"><%= number_to_currency(@property.price) %></span>		
 						</h3>
 						
 						<div class="row text-center listing-meta">
@@ -81,14 +85,14 @@
 						</div>
 						
 						<div class="listing-desc">
-							<h4>Description</h4>
+							<h4 class="text-center">Description</h4>
 							<p><%= @property.description %></p>
 						</div>
 
 						<div class="listing-amenities">
-							<h4>Amenities</h4>
 							<div class="row">
-								<div class="col-sm-6">
+							<h4 class="text-center">Amenities</h4>
+								<div class="col-xs-6">
 									<ul class="amenities">
 										<li class="<%= 'text-line-through' if !@property.is_heating %>">Heating</li>
 										<li >Fridge</li>
@@ -97,7 +101,7 @@
 										<li class="<%= 'text-line-through' if !@property.is_air %>">Air Conditioning</li>
 									</ul>
 								</div>
-								<div class="col-sm-6">
+								<div class="col-xs-6">
 									<ul class="amenities">
 										<li class="<%= 'text-line-through' if !@property.is_tv %>">TV</li>
 										<li class="<%= 'text-line-through' if !@property.is_kitchen %>">Kitchen</li>

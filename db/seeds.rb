@@ -7,5 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 user = User.new(first_name: 'John', last_name: 'Wayne', email: 'john@example.com', job: 'Gun Slinger', phone: '4167221234', password: 'password', password_confirmation: 'password')
 
-user.confirm
-user.save
+user2 = User.create!(first_name: "Sam", last_name: "Smith", email: "sam@example.com", phone: "246813579", password: "password", password_confirmation: "password", job: 'Singer')
+
+
+[user, user2].each do |u|
+	u.confirm
+	u.save
+end

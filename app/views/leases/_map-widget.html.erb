@@ -2,7 +2,7 @@
 	<div id="gmap" style="width: 100%; height: 400px;"></div>
 </div>
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCbJ4twIQXjmV6P4YJoY1RE0kHILzGKgBA&callback=initialize" async defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.gmap_key%>&callback=initialize" async defer></script>
 
 <script>
 	function initialize(){

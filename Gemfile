@@ -17,9 +17,9 @@ gem 'bootstrap-sass', '~> 3.4.0'
 gem 'jquery-rails'
 gem 'devise', '~> 4.5'
 gem 'devise_invitable', '~> 1.7', '>= 1.7.5'
-gem 'toastr-rails', '~> 1.0', '>= 1.0.3'
 gem 'jquery-ui-rails'
 gem 'geocoder', '~> 1.4'
+gem "gritter", "1.2.0"
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

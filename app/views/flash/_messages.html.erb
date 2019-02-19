@@ -1,8 +1,3 @@
-<% unless flash.empty? %>
-	<script type="text/javascript">
-		<% flash.each do |key, value| %>
-			<% type = key.to_s.gsub('alert', 'error').gsub('notice', 'success').gsub('danger', 'error') %>
-			toastr['<%= type %>']('<%= value %>')
-		<% end %>
-	</script>
+<% flash.each do |key, msg| %>
+	<%= js add_gritter(flash[key], title: "HouseToHome", sticky: false, time: 1100) %>
 <% end %>

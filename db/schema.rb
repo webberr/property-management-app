@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_18_110139) do
+ActiveRecord::Schema.define(version: 2019_02_19_122703) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 2019_02_18_110139) do
     t.integer "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "active", default: false, null: false
     t.index ["property_id"], name: "index_leases_on_property_id"
     t.index ["user_id"], name: "index_leases_on_user_id"
   end
@@ -62,7 +63,7 @@ ActiveRecord::Schema.define(version: 2019_02_18_110139) do
     t.boolean "is_heating"
     t.boolean "is_internet"
     t.integer "size", default: 0
-    t.decimal "price", precision: 8, scale: 2
+    t.decimal "price", precision: 15, scale: 2
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
