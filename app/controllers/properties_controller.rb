@@ -5,7 +5,7 @@ class PropertiesController < ApplicationController
   before_action :is_authorised?, except: :show
   
   def index
-    @properties = current_user.properties.all
+    @properties = Property.all
   end
 
   def new

@@ -4,8 +4,8 @@
 			<h4>Dashboard</h4><hr>
 
 			<ul class="sidebar_menu">
-				<li class="<%= set_active('active_link', properties_path) %>">
-					<%= link_to properties_path do %>
+				<li class="<%= set_active('active_link', properties_user_path(current_user)) %>">
+					<%= link_to properties_user_path(current_user) do %>
 						<i class="fa fa-list"></i> My Listings
 					<% end %>
 				</li>

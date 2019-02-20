@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_params, if: :devise_controller?
 
   def after_sign_in_path_for(resource)
-		dashboard_path
+		user_path(current_user)
 	end
 
 	def after_sign_out_path_for(resource)
