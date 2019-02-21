@@ -23,7 +23,7 @@
 						<i class="fa fa-sign-in"></i> Login
 					<% end %>
 				<% else %>
-					<%= link_to 'Account', edit_user_registration_path %>
+					<%= link_to 'Account', user_path(current_user) %>
 				<% end %>
 			</div>
 		</div>
