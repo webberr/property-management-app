@@ -40,12 +40,12 @@
 		
 		<% if !@property.active && !@property.price.blank? && !@property.title.blank? && !@property.description.blank? && !@property.address.blank? %>
 		  <li>
-		  	<a href="#" id="publish_btn" class="publish_btn">Publish
+		  	<span id="publish_btn" class="publish_btn">Publish
 			  	<%= form_for @property, html: {style: 'display: none;', id: 'publish_form'} do |f| %>
 						<%= f.hidden_field :active, value: true %>
 						<%= f.submit 'Publish', id: 'publishBtn' %>
 		      <% end %>
-	      </a>
+	      </span>
 		  </li>
 		<% end %>
 	</ol>
